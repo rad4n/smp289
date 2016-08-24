@@ -20,7 +20,9 @@
 									$n=0;
 									foreach($headlines as $headline){
 								?>
-							  <li <?php echo ($n==3)?'class="rslides1_on"':'class=""';?> style="<?php echo ($n==0)?'display: block;':'display: list-item;';?> <?php echo ($n==3)?'float: left;':'float: none;';?> position: <?php echo ($n==3)?'relative':'absolute';?>; <?php echo ($n==3)?'opacity: 1;':'opacity:0;';?> z-index: <?php echo ($n==3)?'2':'1';?>; transition: opacity 500ms ease-in-out 0s;" id="rslides1_s<?=$n;?>"><img src="<?=BASE_URL;?>/<?=DIR_CON;?>/uploads/<?=$headline['picture'];?>" alt=""/></li>
+							  <li <?php echo ($n==3)?'class="rslides1_on"':'class=""';?> style="<?php echo ($n==0)?'display: block;':'display: list-item;';?> <?php echo ($n==3)?'float: left;':'float: none;';?> position: <?php echo ($n==3)?'relative':'absolute';?>; <?php echo ($n==3)?'opacity: 1;':'opacity:0;';?> z-index: <?php echo ($n==3)?'2':'1';?>; transition: opacity 500ms ease-in-out 0s;" id="rslides1_s<?=$n;?>"><img src="<?=BASE_URL;?>/<?=DIR_CON;?>/uploads/<?=$headline['picture'];?>" alt=""/><div class="breaking-news-title">
+									<p><?=$headline['title'];?></p>
+								  </div></li>
 							 <?php $n++;}?>
 							</ul>
 							<!-- Slideshow 3 Pager -->
@@ -29,9 +31,6 @@
 							  <li class="rslides1_s<?=$n;?> <?php echo ($n==4)?'rslides_here':'';?>"><a href="#"><img src="<?=BASE_URL;?>/<?=DIR_CON;?>/thumbs/<?=$headline['picture'];?>" alt=""></a></li>
 							  <?php $n++;}?>
 							</ul>
-							<div class="breaking-news-title">
-								<p>Lorem ipsum dolor sit amet, consectetur Nulla quis lorem neque, mattis venenatis lectus. </p>
-							</div>
 						</div> 
 					</div>	
 				<div class="posts">
@@ -119,44 +118,41 @@
 							</div>
 					</div>
 					<div class="right-posts">
+						
 						<div class="desk-grid">
-							<h3>FROM   THE   desk</h3>
+							<h3>Tulisan Siswa</h3>
+							<?php
+								$category = array(
+									'id_category' => 5 //category Annoucment
+								);
+								$categorys = $this->post()->getPostFromCategory('3', 'id_post_category DESC', 'post.id_post DESC', $category, "", WEB_LANG_ID);
+								foreach($categorys as $post){
+							?>
 							<div class="desk">
-								<a href="singlepage.html" class="title">Lorem ipsum dolor sit amet, consectetur adipiscing elit </a>
-								<p>Nulla quis lorem neque, mattis venenatis lectus. In interdum ullamcorper dolor eu mattis.</p>
-								<p><a href="singlepage.html">Read More</a><span>3 hours ago</span></p>
+								<a href="singlepage.html" class="title"><?=$post['title'];?></a>
+								<p><?=$this->pocore()->call->postring->cuthighlight('post', $post['content'], '70');?></p>
+								<p><a href="<?=BASE_URL;?>/detailpost/<?=$post['seotitle'];?>">Read More</a><span>3 hours ago</span></p>
 							</div>
-							<div class="desk">
-								<a href="singlepage.html" class="title">Lorem ipsum dolor sit amet, consectetur adipiscing elit </a>
-								<p>Nulla quis lorem neque, mattis venenatis lectus. In interdum ullamcorper dolor eu mattis.</p>
-								<p><a href="singlepage.html">Read More</a><span>3 hours ago</span></p>
-							</div>
-							<div class="desk">
-								<a href="singlepage.html" class="title">Lorem ipsum dolor sit amet, consectetur adipiscing elit </a>
-								<p>Nulla quis lorem neque, mattis venenatis lectus. In interdum ullamcorper dolor eu mattis.</p>
-								<p><a href="singlepage.html">Read More</a><span>3 hours ago</span></p>
-							</div>
+							<?php }?>
 							<a class="more" href="singlepage.html">More  +</a>
 						</div>
+
 						<div class="editorial">
-							<h3>editorial</h3>
+							<h3>Pengumuman</h3>
+							<?php
+								$category = array(
+									'id_category' => 6 //category article for student
+								);
+								$categorys = $this->post()->getPostFromCategory('3', 'id_post_category DESC', 'post.id_post DESC', $category, "", WEB_LANG_ID);
+								foreach($categorys as $post){
+							?>
 							<div class="editor">
-								<a href="single.html"><img src="images/e1.jpg" alt=""></a>
-								<a href="single.html">Lorem ipsum dolor sit amet con se cte tur adipiscing elit</a>
+								<a href="<?=BASE_URL;?>/detailpost/<?=$post['seotitle'];?>"><img src="<?=BASE_URL;?>/<?=DIR_CON;?>/uploads/medium/medium_<?=$post['picture'];?>" alt=""></a>
+								<a href="single.html"><?=$post['title'];?></a>
 							</div>
-							<div class="editor">
-								<a href="single.html"><img src="images/e2.jpg" alt=""></a>
-								<a href="single.html">Lorem ipsum dolor sit amet con se cte tur adipiscing elit</a>
-							</div>
-							<div class="editor">
-								<a href="single.html"><img src="images/e1.jpg" alt=""></a>
-								<a href="single.html">Lorem ipsum dolor sit amet con se cte tur adipiscing elit</a>
-							</div>
-							<div class="editor">
-								<a href="single.html"><img src="images/e3.jpg" alt=""></a>
-								<a href="single.html">Lorem ipsum dolor sit amet con se cte tur adipiscing elit</a>
-							</div>
+							<?php }?>
 						</div>
+						
 					</div>
 					<div class="clearfix"></div>	
 				</div>
@@ -172,45 +168,17 @@
 							</div>
 							<div class="clearfix"></div>
 						</div>
-						<div class="video-grid">
-							<div class="video">
-								<a href="single.html"><i class="play"></i></a>
-							</div>
-							<div class="video-name">
-								<a href="single.html">Lorem ipsum dolor sit amet conse ctetur adipiscing elit</a>
-							</div>
-							<div class="clearfix"></div>
-						</div>
-						<div class="video-grid">
-							<div class="video">
-								<a href="single.html"><i class="play"></i></a>
-							</div>
-							<div class="video-name">
-								<a href="single.html">Lorem ipsum dolor sit amet conse ctetur adipiscing elit</a>
-							</div>
-							<div class="clearfix"></div>
-						</div>
-						<div class="video-grid">
-							<div class="video">
-								<a href="single.html"><i class="play"></i></a>
-							</div>
-							<div class="video-name">
-								<a href="single.html">Lorem ipsum dolor sit amet conse ctetur adipiscing elit</a>
-							</div>
-							<div class="clearfix"></div>
-						</div>
 						<a class="more1" href="single.html">More  +</a>
 						<div class="clearfix"></div>
 					</div>
 					<div class="sign_up text-center">
-						<h3>Sign  Up  for    Newsletter</h3>
+						<h3>Sign  In</h3>
 						<p class="sign">Sign up to receive our free newsletters!</p>
 						<form>
 							<input class="text" value="Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}" type="text">
 							<input class="text" value="Email Address" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email Address';}" type="text">
 							<input value="submit" type="submit">
 						</form>
-						<p class="spam">We do not spam. We value your privacy!</p>
 					</div>
 					<div class="clearfix"></div>
 					<div class="popular">

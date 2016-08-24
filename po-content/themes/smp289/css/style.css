@@ -313,14 +313,14 @@ h5.breaking {
 	background:rgba(36, 34, 36, 0.68);
 	bottom: 3px;
 	z-index: 999;
-	width: 79%;
+	width: 100%;
 	left: 4px;
-	padding: 0.5em 10em;
+	padding: 2em 5em;
 }
 .breaking-news-title p {
 	color:#fff;
-	font-size:1em;
-	font-weight:normal;
+	font-size:24px;
+	font-weight:bold;
 	line-height:1.7em;
 }
 .conference-rslide li {
@@ -538,7 +538,7 @@ a.more{
 	padding: 4px 8px;
 }
 .editorial {
-	margin-top:2em;
+	margin:2em 0;
 }
 .editor a img {
 	width:100%:

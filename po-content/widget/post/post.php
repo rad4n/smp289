@@ -604,10 +604,10 @@ class Post implements ExtensionInterface
 	 * $page = integer from get active page
 	 * $lang = WEB_LANG_ID
 	*/
-	public function getPostFromCategory($limit, $order, $orderall, $category, $page, $lang)
+	public function getPostFromCategory($limit, $order, $orderall, $category, $page="", $lang)
     {
 		$offset = $this->core->popaging->searchPosition($limit, $page);
-		if ($category['seotitle'] == 'all') {
+		if (!empty($category['seotitle']) AND $category['seotitle'] == 'all') {
 			$post = $this->core->podb->from('post')
 				->select(array('post_description.title', 'post_description.content'))
 				->leftJoin('post_description ON post_description.id_post = post.id_post')
