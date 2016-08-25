@@ -1,7 +1,7 @@
 -- --------------------------------------------------------
--- Host:                         127.0.0.1
--- Server version:               10.1.9-MariaDB - mariadb.org binary distribution
--- Server OS:                    Win32
+-- Host:                         localhost
+-- Server version:               10.1.9-MariaDB - Source distribution
+-- Server OS:                    Linux
 -- HeidiSQL Version:             9.1.0.4867
 -- --------------------------------------------------------
 
@@ -95,7 +95,7 @@ CREATE TABLE IF NOT EXISTS `comment` (
   PRIMARY KEY (`id_comment`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
--- Dumping data for table smp289.comment: ~1 rows (approximately)
+-- Dumping data for table smp289.comment: ~0 rows (approximately)
 DELETE FROM `comment`;
 /*!40000 ALTER TABLE `comment` DISABLE KEYS */;
 INSERT INTO `comment` (`id_comment`, `id_parent`, `id_post`, `name`, `email`, `url`, `comment`, `date`, `time`, `active`, `status`) VALUES
@@ -346,7 +346,7 @@ CREATE TABLE IF NOT EXISTS `post` (
   `picture_description` varchar(255) NOT NULL,
   `hits` int(10) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id_post`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 -- Dumping data for table smp289.post: ~8 rows (approximately)
 DELETE FROM `post`;
@@ -359,7 +359,8 @@ INSERT INTO `post` (`id_post`, `seotitle`, `tag`, `date`, `time`, `publishdate`,
 	(5, 'cowok-cuek-justru-tepat-jadi-pendampingmu', 'cowok,pendamping', '2016-03-31', '05:04:09', '2016-03-31 05:04:09', 1, 'Y', 'Y', 'Y', 'cowok-cuek.jpg', '', 12),
 	(6, 'cewek-bergigi-gingsul-emang-layak-disayang', 'cewek,ginsul,sayang,pendamping', '2016-03-31', '10:12:10', '2016-03-31 10:12:10', 1, 'Y', 'N', 'Y', 'cewek-bergigi-gingsul.jpg', '', 8),
 	(7, 'ingin-sukses-terapkan-7-tips-sukses-oprah-winfrey', 'sukses,tips-sukses', '2016-03-31', '03:20:42', '2016-03-31 03:20:42', 1, 'Y', 'N', 'Y', 'tips-sukses.jpg', '', 4),
-	(8, '7-ide-beri-edukasi-keuangan-kepada-anak', 'edukasi-anak,keuangan', '2016-03-31', '01:32:45', '2016-03-31 01:32:45', 1, 'Y', 'Y', 'Y', 'edukasi-anak.jpg', '', 6);
+	(8, '7-ide-beri-edukasi-keuangan-kepada-anak', 'edukasi-anak,keuangan', '2016-03-31', '01:32:45', '2016-03-31 01:32:45', 1, 'Y', 'Y', 'Y', 'edukasi-anak.jpg', '', 6),
+	(9, 'nemo-itaque-voluptatem-quae-iure-quae-odit-consequuntur-exercitationem', '', '0000-00-00', '00:00:00', '0000-00-00 00:00:00', 1, 'Y', 'N', 'Y', 'trik-bagun-lebih-pagi.jpg', '', 1);
 /*!40000 ALTER TABLE `post` ENABLE KEYS */;
 
 
@@ -560,11 +561,12 @@ CREATE TABLE IF NOT EXISTS `traffic` (
   `online` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table smp289.traffic: ~1 rows (approximately)
+-- Dumping data for table smp289.traffic: ~2 rows (approximately)
 DELETE FROM `traffic`;
 /*!40000 ALTER TABLE `traffic` DISABLE KEYS */;
 INSERT INTO `traffic` (`ip`, `browser`, `os`, `platform`, `country`, `city`, `date`, `hits`, `online`) VALUES
-	('127.0.0.1', 'Firefox', 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:47.0) Gecko/20100101 Firefox/47.0', 'Windows', '', '', '2016-08-24', 93, '1472037432');
+	('127.0.0.1', 'Firefox', 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:47.0) Gecko/20100101 Firefox/47.0', 'Windows', '', '', '2016-08-24', 93, '1472037432'),
+	('127.0.0.1', 'Firefox', 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:48.0) Gecko/20100101 Firefox/48.0', 'Linux', '', '', '2016-08-25', 23, '1472079055');
 /*!40000 ALTER TABLE `traffic` ENABLE KEYS */;
 
 
@@ -587,11 +589,11 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table smp289.users: ~1 rows (approximately)
+-- Dumping data for table smp289.users: ~0 rows (approximately)
 DELETE FROM `users`;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id_user`, `username`, `password`, `nama_lengkap`, `email`, `no_telp`, `bio`, `picture`, `level`, `block`, `id_session`, `tgl_daftar`, `forget_key`, `locktype`) VALUES
-	(1, 'admin', '0192023a7bbd73250516f069df18b500', 'admin', 'asdad@asd.com', '', '', '', '1', 'N', 'cn69cu7uleh41rqpfjf6nruf30', '0000-00-00', NULL, '0');
+	(1, 'admin', '0192023a7bbd73250516f069df18b500', 'admin', 'asdad@asd.com', '', '', '', '1', 'N', '9ulei3vc58e3ed1c9dfc6eq4u5', '0000-00-00', NULL, '0');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
 

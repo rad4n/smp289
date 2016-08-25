@@ -22,6 +22,14 @@
 */
 session_start();
 
+//For debuging with pre
+function pre($variabel,$continue=false){
+	echo "<pre>";
+	print_r($variabel);
+	if($continue===false) exit;
+}
+
+
 /**
  * Mendefinisikan Base Url
  *
@@ -219,7 +227,7 @@ if (file_exists('install.php')) {
 		 *
 		*/
 		$get_components = new PoDirectory();
-		$components = $get_components->listDir(DIR_CON.'/component/');
+		$components = $get_components->listDir(DIR_CON.'/component/'); 
 		foreach($components as $component) {
 			if ($component != 'index.html') {
 				if (file_exists(DIR_CON.'/component/'.$component.'/'.$component.'.php')) {

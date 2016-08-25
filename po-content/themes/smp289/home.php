@@ -37,7 +37,7 @@
 					<div class="left-posts">
 						<?php 
 							$db = mysqli_connect(DATABASE_HOST,DATABASE_USER,DATABASE_PASS,DATABASE_NAME);
-							$result = mysqli_query($db,"SELECT id_category from category WHERE active=1");
+							$result = mysqli_query($db,"SELECT id_category from category WHERE active=1 AND id_category not in(5,6)");
 							while($row = mysqli_fetch_assoc($result)) {	
 							$category_title = $this->category()->getOneCategory($row['id_category'], WEB_LANG_ID);
 						?>
