@@ -36,12 +36,12 @@
 			</nav>
 			<div class="container group">
 				<div class="container-inner">
-					<div class="group pad">
+					<!-- <div class="group pad">
 						<h1 class="site-title">
 							<a class="custom-logo-link" href="<?=BASE_URL;?>" rel="home"><img src="<?=BASE_URL.'/'.DIR_INC;?>/images/logo.png" alt="<?=$this->pocore()->call->posetting[0]['value'];?>"></a>
 						</h1>
 						<p class="site-description"><?=$this->pocore()->call->posetting[0]['value'];?></p>
-					</div>
+					</div> -->
 					<nav class="nav-container group" id="nav-header">
 						<div class="nav-toggle"><i class="fa fa-bars"></i></div>
 						<div class="nav-text"></div>

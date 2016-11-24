@@ -89,4 +89,6 @@ header{
     background: url("../../../../../uploads/header-smp289.jpg") !important;
     background-repeat: no-repeat !important;
     background-size: cover;
+    background-position-x: 52% !important;
+    background-position-y: 31% !important;
 }

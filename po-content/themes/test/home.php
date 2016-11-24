@@ -26,7 +26,8 @@
 														smoothHeight: true,
 														touch: 1,
 														slideshow: false,
-														slideshowSpeed: 5000,
+														slideshowSpeed: 3000,
+														start:function(slider){slider.play();}   
 													})).done(function() {
 														var $_self = $(this);
 														_trigger = function($_self) {
